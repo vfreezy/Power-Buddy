@@ -10,11 +10,13 @@
 !*
 !*
 !*****************************************************************************/
+#include <SPI.h>
+#include <SD.h>
+#include "Current.h"
+#include "Voltage.h"
 
 /*                              INCLUDES
 ******************************************************************************/
-#include "Current.h"
-#include "Voltage.h"
 
 void setup()
 {

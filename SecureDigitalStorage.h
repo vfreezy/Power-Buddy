@@ -31,6 +31,7 @@ class SecureDigitalStorage
 		uint32_t currentPos;						//Current file position
 		boolean fileOpen;							//File open flag
 		File * pFile;								//File pointer
+		File fileObj;
 		static boolean sdInt;						//SD card enabled
 		
 		//Opens the file, returns true on an open file, false on failure
