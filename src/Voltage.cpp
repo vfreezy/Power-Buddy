@@ -1,13 +1,14 @@
 /*								Voltage.cpp
 !*******************************************************************************
+!*	Description: Provides the functionality for voltage sensors.
+!*
+!*  Known Bugs: Equation for voltage not implemented
 !*
 !*
-!*
-!*
-!*
-!*
-!*
-!*
+!*	DATE					    COMMENTS							AUTHOR
+!*=============================================================================
+!* 26JAN16			Initial Delivery, have not tested			T. von Friesen
+!*					everything yet
 !*
 !*****************************************************************************/
 

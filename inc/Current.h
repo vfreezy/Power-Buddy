@@ -1,13 +1,14 @@
 /*								Current.h
 !*******************************************************************************
+!*	Description: Provides the functionality for current sensors.
+!*
+!*  Known Bugs: None
 !*
 !*
-!*
-!*
-!*
-!*
-!*
-!*
+!*	DATE					    COMMENTS							AUTHOR
+!*=============================================================================
+!* 26JAN16			Initial Delivery, have not tested			T. von Friesen
+!*					everything yet
 !*
 !*****************************************************************************/
 

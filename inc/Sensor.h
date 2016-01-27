@@ -1,13 +1,15 @@
 /*								Sensor.h
 !*******************************************************************************
+!*	Description: Provides the base class for sensors. Simple structure to allow
+!*				 all sensors to cohere to a standard for easy management.
+!*
+!*  Known Bugs: None
 !*
 !*
-!*
-!*
-!*
-!*
-!*
-!*
+!*	DATE					    COMMENTS							AUTHOR
+!*=============================================================================
+!* 26JAN16			Initial Delivery, have not tested			T. von Friesen
+!*					everything yet
 !*
 !*****************************************************************************/
 
