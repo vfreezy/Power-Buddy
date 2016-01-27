@@ -18,7 +18,9 @@
 ******************************************************************************/
 #include "SecureDigitalStorage.h"
 #include "Common.h"
-#include "SD.h""
+#include "SD.h"
+#include "string.h"
+#include "stdio.h"
 
 
 SecureDigitalStorage::SecureDigitalStorage(uint8_t pin, uint8_t filename[])
@@ -37,7 +39,7 @@ SecureDigitalStorage::SecureDigitalStorage(uint8_t pin, uint8_t filename[])
 	this->pFile = NULL;
 	
 	//Clear buffers
-	clearBuf(&this->buffer, MAX_FILE_BUF_SIZE);
+	clearBuf(&this->buffer[0], MAX_FILE_BUF_SIZE);
 	
 	//Enable the Shield, the boolean value is disregarded here
 	// maybe the true false can be used?
@@ -69,11 +71,11 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 	if (this->fileOpen) {return true;}
 		
 	//Check to see if the file exists
-	if (SD.exists(this->filename))
+	if (SD.exists((char *)this->filename))
 	{
 		//Open the file
-		this->pFile = * SD.open(this->filename, mode);
-		
+		this->fileObj = SD.open((char *)this->filename, mode);
+		this->pFile = & this->fileObj;
 		//Verify the file is indeed open
 		if(*this->pFile)
 		{
@@ -87,8 +89,8 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 	{
 		//File does not exist, create the file. However if the mode is read
 		// the file must be opened in write mode then switch to read mode
-		this->pFile = SD.open(this->filename, FILE_WRITE);
-		
+		this->fileObj = SD.open((char *) this->filename, FILE_WRITE);
+		this->pFile = & this->fileObj;
 		//Verify the file is indeed open
 		if (*this->pFile)
 		{
@@ -102,8 +104,8 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 				this->pFile->close();
 				
 				//Reopen file in read mode
-				this->pFile = SD.open(this->filename, mode);
-				
+				this->fileObj = SD.open((char *) this->filename, mode);
+				this->pFile = & this->fileObj;
 				//Verify the file is indeed open
 				if(*this->pFile)
 				{
@@ -139,7 +141,7 @@ uint8_t * SecureDigitalStorage::readln()
 		if (this->pFile->available())
 		{
 			//Start with a fresh buffer!
-			clearBuf(&this->buffer, MAX_FILE_BUF_SIZE);
+			clearBuf(&this->buffer[0], MAX_FILE_BUF_SIZE);
 
 			//Here is the juicy part where we read the good stuff
 			uint8_t readbyte;	
@@ -155,7 +157,7 @@ uint8_t * SecureDigitalStorage::readln()
 						this->buffer[x] = '\0';
 						this->currentPos = this->pFile->position();
 						close();
-						return & this->buffer;
+						return & this->buffer[0];
 					}
 					this->currentPos = this->pFile->position();
 				}else
@@ -166,7 +168,7 @@ uint8_t * SecureDigitalStorage::readln()
 					this->buffer[x] = '\0';
 					this->currentPos = 0;
 					close();
-					return & this->buffer;
+					return & this->buffer[0];
 				}
 			}
 			//If you get to this point, you did not reach the EOF or NL or Fill the
@@ -174,7 +176,7 @@ uint8_t * SecureDigitalStorage::readln()
 			this->buffer[MAX_FILE_BUF_SIZE-1] = '\0';
 			this->currentPos = this->pFile->position();
 			close();
-			return & this->buffer;
+			return & this->buffer[0];
 		}else
 		{
 			//LOL you opened an empty file to read... el stupido
@@ -200,7 +202,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length)
 		if (this->pFile->available())
 		{
 			//Start with a fresh buffer!
-			clearBuf(&this->buffer, MAX_FILE_BUF_SIZE);
+			clearBuf(&this->buffer[0], MAX_FILE_BUF_SIZE);
 
 			//Here is the juicy part where we read the good stuff
 			uint8_t readbyte;
@@ -216,7 +218,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length)
 						this->buffer[x] = '\0';
 						this->currentPos = this->pFile->position();
 						close();
-						return & this->buffer;
+						return & this->buffer[0];
 					}
 					this->currentPos = this->pFile->position();
 				}else
@@ -227,7 +229,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length)
 					this->buffer[x] = '\0';
 					this->currentPos = 0;
 					close();
-					return & this->buffer;
+					return & this->buffer[0];
 				}
 			}
 			//If you get to this point, you did not reach the EOF or NL or Fill the
@@ -235,7 +237,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length)
 			this->buffer[length-1] = '\0';
 			this->currentPos = this->pFile->position();
 			close();
-			return & this->buffer;
+			return & this->buffer[0];
 		}else
 		{
 			//LOL you opened an empty file to read... el stupido
@@ -269,7 +271,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length, uint32_t pos)
 			}
 
 			//Start with a fresh buffer!
-			clearBuf(&this->buffer, MAX_FILE_BUF_SIZE);
+			clearBuf(&this->buffer[0], MAX_FILE_BUF_SIZE);
 
 			//Here is the juicy part where we read the good stuff
 			uint8_t readbyte;
@@ -285,7 +287,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length, uint32_t pos)
 						this->buffer[x] = '\0';
 						this->currentPos = this->pFile->position();
 						close();
-						return & this->buffer;
+						return & this->buffer[0];
 					}
 					this->currentPos = this->pFile->position();
 				}else
@@ -296,7 +298,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length, uint32_t pos)
 					this->buffer[x] = '\0';
 					this->currentPos = 0;
 					close();
-					return & this->buffer;
+					return & this->buffer[0];
 				}
 			}
 			//If you get to this point, you did not reach the EOF or NL or Fill the
@@ -304,7 +306,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length, uint32_t pos)
 			this->buffer[length-1] = '\0';
 			this->currentPos = this->pFile->position();
 			close();
-			return & this->buffer;
+			return & this->buffer[0];
 		}else
 		{
 			//LOL you opened an empty file to read... el stupido
@@ -325,7 +327,8 @@ uint32_t SecureDigitalStorage::find(uint8_t phrase[])
 	//Lets make sure we keep track of our position before we it becomes foobar
 	uint32_t posHolder = this->currentPos;
 	uint32_t foundItAt = 0;
-	char * temp;
+	uint8_t * temp;
+	uint8_t * found;
 	//Start at the beginning of the file!
 	this->currentPos = 0;
 	do 
@@ -334,11 +337,20 @@ uint32_t SecureDigitalStorage::find(uint8_t phrase[])
 		temp = readln();
 
 		//Check to see if the phrase is in the read line
-		if ((foundItAt = strstr(this->buffer, * phrase)))
+		if (!(found = (uint8_t *)strstr((char *)&this->buffer[0], (char *) &phrase[0])))
 		{
 			//FOUND IT!
+			//Compare addresses until we find out exactly how far into the string it is
+			for (int x = 0; x < strlen((char *)&this->buffer[0]); x++)
+			{
+				if (&this->buffer[0] == found)
+				{
+					foundItAt = x;
+					break;
+				}
+			}
 			//Last position - length of read line + where it was on the previous line
-			foundItAt = this->currentPos - (strlen(this->buffer) + foundItAt);
+			foundItAt = this->currentPos - (strlen((char*)&this->buffer[0]) + foundItAt);
 
 			//Putting things back the way we found it
 			this->currentPos = posHolder;

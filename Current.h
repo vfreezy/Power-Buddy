@@ -1,7 +1,6 @@
-/*								Sensor.h
+/*								Current.h
 !*******************************************************************************
-!*	Description: Provides the base class for sensors. Simple structure to allow
-!*				 all sensors to cohere to a standard for easy management.
+!*	Description: Provides the functionality for current sensors.
 !*
 !*  Known Bugs: None
 !*
@@ -16,17 +15,20 @@
 /*                              INCLUDES
 ******************************************************************************/
 #pragma once
+#include "Sensor.h"
+#include "stdint-gcc.h"
 
 /*                          CLASS DEFINITION
 ******************************************************************************/
-class Sensor
+class Current : public Sensor
 {
 	private:
-		uint8_t pin;
-		double LastReadData;
-	    
+		//Intentionally left blank
 	public:
-		Sensor();
-		virtual void read(void);
-		double getValue() {return LastReadData;}
+		//Constructor
+		Current(uint8_t pin);
+		
+		/*  Reads the analog value on the initialized pin, applies a conversion 
+	    equation, and stores that result into lastReadValue                  */
+		void read(void);
 };
