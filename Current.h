@@ -26,7 +26,7 @@ class Current : public Sensor
 		//Intentionally left blank
 	public:
 		//Constructor
-		Current(uint8_t pin);
+		Current(int pin);
 		
 		/*  Reads the analog value on the initialized pin, applies a conversion 
 	    equation, and stores that result into lastReadValue                  */

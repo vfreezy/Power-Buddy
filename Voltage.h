@@ -26,7 +26,7 @@ class Voltage : public Sensor
 	//Intentionally left blank
 	public:
 	//Constructor
-	Voltage(uint8_t pin);
+	Voltage(int pin);
 	
 	/*  Reads the analog value on the initialized pin, applies a conversion 
 	    equation, and stores that result into lastReadValue                  */

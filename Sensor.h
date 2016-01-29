@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*								Sensor.h
 !*******************************************************************************
 !*	Description: Provides the base class for sensors. Simple structure to allow
@@ -23,14 +22,12 @@
 class Sensor
 {
 	protected:
-		uint8_t pin;
+		int pin;
 		double LastReadData;
 	    
 	public:
-		Sensor();
+		//Sensor();
 		virtual void read(void);
 		double getValue() {return LastReadData;}
 };
-=======
 
->>>>>>> 0751aebe810900b867efc18b80129effb7b2d0bf

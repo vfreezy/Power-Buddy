@@ -21,7 +21,7 @@
 
 
 
-Current::Current(uint8_t pin)
+Current::Current(int pin)
 {
 	this->pin = pin;
 	this->LastReadData = 0;

@@ -22,9 +22,16 @@
 #include "string.h"
 #include "stdio.h"
 
+boolean SecureDigitalStorage::sdInt = false;
 
 SecureDigitalStorage::SecureDigitalStorage(uint8_t pin, uint8_t filename[])
 {
+	#ifdef DEBUG
+		Serial.print("Creating Object\n Pin = ");
+		Serial.print((int) pin,DEC);
+		Serial.print(" Filename = ");
+		Serial.println((char *)filename);
+	#endif
 	//Copy filename over, there is no validation here perhaps add it later?
 	// filename needs to be in the format of 7.3 (xxxxxxx.xxx)
 	for (int x = 0; x < MAX_FILE_SIZE; x++)
@@ -51,15 +58,27 @@ boolean SecureDigitalStorage::isEnabled()
 	if (!this->sdInt)
 	{
 	//SD Shield is not configured
-		if (SD.begin(SS))
+	#ifdef DEBUG
+		Serial.print("SD !Enabled, sdInt = ");
+		Serial.println(this->sdInt, HEX);
+	#endif
+		if (SD.begin(this->SS))
 		{
 			//SD Shield configured
 			this->sdInt = true;
 			
+			#ifdef DEBUG
+				Serial.print("SD Enabled, sdInt = ");
+				Serial.println(this->sdInt, HEX);
+			#endif
 			//Everything checks out, let 'em know!
 			return true;
 		}
 		//An error occurred at some point
+		#ifdef DEBUG
+			Serial.print("SD failed Enable, sdInt = ");
+			Serial.println(this->sdInt, HEX);
+		#endif
 		return false;
 	}
 	//SD shield is already enabled, silly goose!
@@ -183,6 +202,7 @@ uint8_t * SecureDigitalStorage::readln()
 			//...
 			//Here let me help you close your empty file.
 			//You might have actually read all the file, in that case.. sorry!
+			this->currentPos = 0;
 			close();
 			return NULL;
 		}
@@ -243,7 +263,8 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length)
 			//LOL you opened an empty file to read... el stupido
 			//...
 			//Here let me help you close your empty file.
-			//You might have actually read all the file, in that case.. sorry!			
+			//You might have actually read all the file, in that case.. sorry!
+			this->currentPos = 0;		
 			close();
 			return NULL;
 		}
@@ -313,6 +334,7 @@ uint8_t * SecureDigitalStorage::readln(uint8_t length, uint32_t pos)
 			//...
 			//Here let me help you close your empty file.
 			//You might have actually read all the file, in that case.. sorry!
+			this->currentPos = 0;
 			close();
 			return NULL;
 		}

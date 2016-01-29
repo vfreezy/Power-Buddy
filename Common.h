@@ -15,5 +15,6 @@
 
 #pragma once
 
+#define DEBUG
 #define MAX_FILE_SIZE 10
 #define MAX_FILE_BUF_SIZE 100
