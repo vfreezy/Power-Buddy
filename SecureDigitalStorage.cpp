@@ -86,23 +86,41 @@ boolean SecureDigitalStorage::isEnabled()
 }
 boolean SecureDigitalStorage::open(uint8_t mode)
 {
+	#ifdef DEBUG
+		Serial.print("Opening File, mode = ");
+		Serial.println(mode, HEX);
+		Serial.print("fileOpen = ");
+		Serial.println(this->fileOpen, HEX);
+	#endif
 	//Check for silliness of opening an already open file!
 	if (this->fileOpen) {return true;}
 		
 	//Check to see if the file exists
 	if (SD.exists((char *)this->filename))
 	{
+		#ifdef DEBUG
+			Serial.print((char *)this->filename);
+			Serial.println(", exists");
+		#endif
 		//Open the file
 		this->fileObj = SD.open((char *)this->filename, mode);
 		this->pFile = & this->fileObj;
 		//Verify the file is indeed open
 		if(*this->pFile)
 		{
+			#ifdef DEBUG
+					Serial.print((char *)this->filename);
+					Serial.println(", is opened");
+			#endif
 			//Hurray!
 			this->fileOpen = true;
 			return true;
 		}
 		// =(
+		#ifdef DEBUG
+			Serial.print((char *)this->filename);
+			Serial.println(", failed to open");
+		#endif
 		return false;
 	}else
 	{
@@ -110,9 +128,18 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 		// the file must be opened in write mode then switch to read mode
 		this->fileObj = SD.open((char *) this->filename, FILE_WRITE);
 		this->pFile = & this->fileObj;
+		
+		#ifdef DEBUG
+			Serial.print((char *)this->filename);
+			Serial.println(", does not exist");
+		#endif
 		//Verify the file is indeed open
 		if (*this->pFile)
 		{
+			#ifdef DEBUG
+				Serial.print((char *)this->filename);
+				Serial.println(", was is created");
+			#endif			
 			//Hurray!
 			if (mode == FILE_WRITE)
 			{
@@ -120,6 +147,10 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 				return true;
 			}else
 			{
+				#ifdef DEBUG
+					Serial.print((char *)this->filename);
+					Serial.println(", is being reopened");
+				#endif
 				this->pFile->close();
 				
 				//Reopen file in read mode
@@ -128,21 +159,36 @@ boolean SecureDigitalStorage::open(uint8_t mode)
 				//Verify the file is indeed open
 				if(*this->pFile)
 				{
+					#ifdef DEBUG
+						Serial.print((char *)this->filename);
+						Serial.println(", is opened");
+					#endif					
 					//Hurray!
 					this->fileOpen = true;
 					return true;
 				}
 				// =(
+				#ifdef DEBUG
+					Serial.print((char *)this->filename);
+					Serial.println(", failed to open");
+				#endif
 				return false;
 			}	
 		}
 		// =(
+		#ifdef DEBUG
+			Serial.println("File failed to open");
+		#endif
 		return false;
 	}
 	
 }
 void SecureDigitalStorage::close()
 {
+	#ifdef DEBUG
+		Serial.print("Closing file, ");
+		Serial.println((char *)this->filename);
+	#endif
 	this->pFile->close();
 	this->fileOpen = false;
 }
@@ -152,6 +198,7 @@ void SecureDigitalStorage::clearBuf(uint8_t * buf, uint8_t len)
 }
 uint8_t * SecureDigitalStorage::readln()
 {
+
 	//Open the file for reading! WE ALL LOVE READING SHIT!
 	if (open(FILE_READ))
 	{
@@ -174,7 +221,7 @@ uint8_t * SecureDigitalStorage::readln()
 					{
 						//NEWLINE!
 						this->buffer[x] = '\0';
-						this->currentPos = this->pFile->position();
+						this->currentPos = this->pFile->position();					
 						close();
 						return & this->buffer[0];
 					}
@@ -353,14 +400,25 @@ uint32_t SecureDigitalStorage::find(uint8_t phrase[])
 	uint8_t * found;
 	//Start at the beginning of the file!
 	this->currentPos = 0;
+	
+	#ifdef DEBUG
+		Serial.print("Searching for: ");
+		Serial.println((char *)phrase);
+	#endif
 	do 
 	{
 		//Fill the buffer with the next line!
 		temp = readln();
-
+		#ifdef DEBUG
+			Serial.print("READ = ");
+			Serial.println((char*)temp);
+		#endif
 		//Check to see if the phrase is in the read line
-		if (!(found = (uint8_t *)strstr((char *)&this->buffer[0], (char *) &phrase[0])))
+		if ((found = (uint8_t *)strstr((char *)&this->buffer[0], (char *) &phrase[0])))
 		{
+			#ifdef DEBUG
+				Serial.println("Found phrase");
+			#endif
 			//FOUND IT!
 			//Compare addresses until we find out exactly how far into the string it is
 			for (int x = 0; x < strlen((char *)&this->buffer[0]); x++)
@@ -373,7 +431,11 @@ uint32_t SecureDigitalStorage::find(uint8_t phrase[])
 			}
 			//Last position - length of read line + where it was on the previous line
 			foundItAt = this->currentPos - (strlen((char*)&this->buffer[0]) + foundItAt);
-
+			
+			#ifdef DEBUG
+				Serial.print("Found at POS = ");
+				Serial.println(foundItAt, DEC);			
+			#endif
 			//Putting things back the way we found it
 			this->currentPos = posHolder;
 			return foundItAt;
@@ -382,7 +444,9 @@ uint32_t SecureDigitalStorage::find(uint8_t phrase[])
 
 	//Putting things back the way we found it
 	this->currentPos = posHolder;
-
+	#ifdef DEBUG
+		Serial.println("Unable to find");
+	#endif
 	//You didnt find anything, sucker!
 	return 0;
 }
@@ -426,4 +490,9 @@ uint8_t SecureDigitalStorage::writeln(uint8_t * buf, uint8_t len)
 		//Unfortunately your file is magical and cannot be opened sorry =(
 		return byteswritten;
 	}
+}
+
+uint8_t SecureDigitalStorage::deleteFile()
+{
+	return SD.remove((char *)this->filename);
 }

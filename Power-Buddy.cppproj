@@ -65,20 +65,20 @@
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
-      <Value>E:/Arduino/hardware/tools/avr//avr/include/avr/</Value>
-      <Value>E:/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
       <Value>C:/Users/vonfr/OneDrive/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries</Value>
-      <Value>E:/Arduino/libraries</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI</Value>
-      <Value>E:/Arduino/libraries/SD/src/utility</Value>
-      <Value>E:/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src</Value>
       <Value>../../Power-Buddy</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/variants/standard</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -103,20 +103,20 @@
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
-      <Value>E:/Arduino/hardware/tools/avr//avr/include/avr/</Value>
-      <Value>E:/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
       <Value>C:/Users/vonfr/OneDrive/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries</Value>
-      <Value>E:/Arduino/libraries</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI</Value>
-      <Value>E:/Arduino/libraries/SD/src/utility</Value>
-      <Value>E:/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src</Value>
       <Value>../../Power-Buddy</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/variants/standard</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
@@ -127,10 +127,10 @@
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>E:/Arduino/hardware/arduino/avr/cores/arduino;E:/Arduino/hardware/arduino/avr/variants/eightanaloginputs;../../Power-Buddy;E:/Arduino/libraries;E:/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers;C:/Users/vonfr/OneDrive/Documents/Arduino/libraries;E:/Arduino/hardware/tools/avr/avr/include/;E:/Arduino/hardware/tools/avr//avr/include/avr/;E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;E:/Arduino/libraries/SD/src;E:/Arduino/libraries/SD/src/utility;E:/Arduino/hardware/arduino/avr/libraries/SPI;E:/Arduino/hardware/arduino/avr/libraries/SPI/utility;E:/Arduino/hardware/arduino/avr/variants/standard;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>E:/Arduino/hardware/arduino/avr/cores/arduino;E:/Arduino/hardware/arduino/avr/variants/eightanaloginputs;../../Power-Buddy;E:/Arduino/libraries;E:/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers;C:/Users/vonfr/OneDrive/Documents/Arduino/libraries;E:/Arduino/hardware/tools/avr/avr/include/;E:/Arduino/hardware/tools/avr//avr/include/avr/;E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;E:/Arduino/libraries/SD/src;E:/Arduino/libraries/SD/src/utility;E:/Arduino/hardware/arduino/avr/libraries/SPI;E:/Arduino/hardware/arduino/avr/libraries/SPI/utility;E:/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/libraries/SD/src;C:/Program Files (x86)/Arduino/libraries/SD/src/utility;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility;C:/Program Files (x86)/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/;C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM3</arduino.upload.port>
+        <arduino.upload.port>COM5</arduino.upload.port>
         <arduino.board.name>uno</arduino.board.name>
         <arduino.board.desc>Arduino Uno</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Uno
@@ -314,20 +314,20 @@ build.arch=AVR
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
-      <Value>E:/Arduino/hardware/tools/avr//avr/include/avr/</Value>
-      <Value>E:/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
       <Value>C:/Users/vonfr/OneDrive/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries</Value>
-      <Value>E:/Arduino/libraries</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI</Value>
-      <Value>E:/Arduino/libraries/SD/src/utility</Value>
-      <Value>E:/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src</Value>
       <Value>../../Power-Buddy</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/variants/standard</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -352,20 +352,20 @@ build.arch=AVR
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
-      <Value>E:/Arduino/hardware/tools/avr//avr/include/avr/</Value>
-      <Value>E:/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
       <Value>C:/Users/vonfr/OneDrive/Documents/Arduino/libraries</Value>
       <Value>C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries</Value>
-      <Value>E:/Arduino/libraries</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/libraries/SPI</Value>
-      <Value>E:/Arduino/libraries/SD/src/utility</Value>
-      <Value>E:/Arduino/libraries/SD/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src/utility</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries/SD/src</Value>
       <Value>../../Power-Buddy</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/variants/standard</Value>
-      <Value>E:/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
@@ -376,10 +376,10 @@ build.arch=AVR
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>E:/Arduino/hardware/arduino/avr/cores/arduino;E:/Arduino/hardware/arduino/avr/variants/eightanaloginputs;../../Power-Buddy;E:/Arduino/libraries;E:/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers;C:/Users/vonfr/OneDrive/Documents/Arduino/libraries;E:/Arduino/hardware/tools/avr/avr/include/;E:/Arduino/hardware/tools/avr//avr/include/avr/;E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;E:/Arduino/libraries/SD/src;E:/Arduino/libraries/SD/src/utility;E:/Arduino/hardware/arduino/avr/libraries/SPI;E:/Arduino/hardware/arduino/avr/libraries/SPI/utility;E:/Arduino/hardware/arduino/avr/variants/standard;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>E:/Arduino/hardware/arduino/avr/cores/arduino;E:/Arduino/hardware/arduino/avr/variants/eightanaloginputs;../../Power-Buddy;E:/Arduino/libraries;E:/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Visual Micro/Visual Micro for Arduino/Micro Platforms/default/debuggers;C:/Users/vonfr/OneDrive/Documents/Arduino/libraries;E:/Arduino/hardware/tools/avr/avr/include/;E:/Arduino/hardware/tools/avr//avr/include/avr/;E:/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;E:/Arduino/libraries/SD/src;E:/Arduino/libraries/SD/src/utility;E:/Arduino/hardware/arduino/avr/libraries/SPI;E:/Arduino/hardware/arduino/avr/libraries/SPI/utility;E:/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/libraries/SD/src;C:/Program Files (x86)/Arduino/libraries/SD/src/utility;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility;C:/Program Files (x86)/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/;C:/Program Files (x86)/Arduino/hardware/tools/avr//avr/include/avr/;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM3</arduino.upload.port>
+        <arduino.upload.port>COM5</arduino.upload.port>
         <arduino.board.name>uno</arduino.board.name>
         <arduino.board.desc>Arduino Uno</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Uno

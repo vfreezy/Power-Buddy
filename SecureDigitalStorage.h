@@ -12,6 +12,12 @@
 !* 26JAN16			Initial Delivery, have not tested			T. von Friesen
 !*					everything yet
 !*
+!* 01FEB16			Compiled and debugged all functions			T. von Friesen
+!*					slight modifications to casting
+!*					and fixed a logical error in the
+!*					find function.
+!*					Added delete file function.
+!*
 !*****************************************************************************/
 
 /*                              INCLUDES
@@ -31,7 +37,7 @@ class SecureDigitalStorage
 		uint32_t currentPos;						//Current file position
 		boolean fileOpen;							//File open flag
 		File * pFile;								//File pointer
-		File fileObj;
+		File fileObj;								//File object
 		static boolean sdInt;						//SD card enabled
 		
 		//Opens the file, returns true on an open file, false on failure
@@ -79,4 +85,7 @@ class SecureDigitalStorage
 		//returns number of bytes written
 		uint8_t writeln(uint8_t* buf, uint8_t len);
 	
+		//Deletes the objects associated file
+		//returns 0 on failure, 1 on success
+		uint8_t deleteFile();
 };

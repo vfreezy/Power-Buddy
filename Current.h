@@ -10,6 +10,10 @@
 !* 26JAN16			Initial Delivery, have not tested			T. von Friesen
 !*					everything yet
 !*
+!* 01FEB16			Compiled and debugged, everything			T. von Friesen
+!*					checks out, need to test equation
+!*					accuracy with live data.
+!*
 !*****************************************************************************/
 
 /*                              INCLUDES

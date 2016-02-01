@@ -5,6 +5,16 @@
 !*
 !*
 !*
+!*	PIN Assignments:
+!*		MOSI		-	11				|\
+!*		MISO		-	12				| \  SD Card
+!*		CLK			-	13				| /
+!*		SS			-	4				|/
+!*		Sensor1		-	1 (Analog)		> Current Sensor 1
+!*		Sensor2		-	2 (Analog)		> Current Sensor 2
+!*		Sensor3		-	3 (Analog)		> Voltage Sensor
+!*		ESP8266-RX	-	2				|\
+!*		ESP8266-TX	-	3				|/	WiFi
 !*
 !*
 !*
@@ -19,14 +29,13 @@
 #include "SecureDigitalStorage.h"
 
 
+SecureDigitalStorage files((uint8_t) 4, (uint8_t *)"test7.txt");
 
 
-void testFunctionSensors();
-void testFunctionSD();
 void setup()
 {
 	Serial.begin(9600);
-	testFunctionSD();
+	delay(5000);
 
 }
 
@@ -34,30 +43,4 @@ void loop()
 {
 	delay(5000);
 	Serial.println("Loop");
-
-}
-void testFunctionSD()
-{
-	SecureDigitalStorage files((uint8_t) 4, (uint8_t *)"test2.txt");
-	files.writeln((uint8_t*)"line1",(uint8_t) 5);
-	files.writeln((uint8_t*)"line2",(uint8_t) 5);
-	files.writeln((uint8_t*)"line3",(uint8_t) 5);
-	files.writeln((uint8_t*)"line4",(uint8_t) 5);
-	uint8_t * temp = files.readln();
-	
-	if (temp != NULL)
-		Serial.println((char *)temp);
-}
-void testFunctionSensors()
-{
-	Current cSensor(1);
-	Voltage vSensor(2);
-	
-	cSensor.read();
-	vSensor.read();
-	
-	Serial.print("Current = ");
-	Serial.print(cSensor.getValue(),DEC);
-	Serial.print(" | Voltage = ");
-	Serial.println(vSensor.getValue(), DEC);
 }
