@@ -18,6 +18,10 @@
 !*					find function.
 !*					Added delete file function.
 !*
+!* 21FEB16			Added FTP read functions.					T. von Friesen
+!*					Added get/set position functions.
+!*
+!*
 !*****************************************************************************/
 
 /*                              INCLUDES
@@ -41,19 +45,19 @@ class SecureDigitalStorage
 		static boolean sdInt;						//SD card enabled
 		
 		//Opens the file, returns true on an open file, false on failure
-		boolean open(uint8_t mode);//
+		boolean open(uint8_t mode);
 		
 		//Closes the file
-		void close();//
+		void close();
 		
 		//Clear the specified buffer
-		void clearBuf(uint8_t * buf, uint8_t len);//
+		void clearBuf(uint8_t * buf, uint8_t len);
 		
 		//Check if the SD card is enabled, enables if it is not
 		//returns true if it is false if it is not
-		boolean isEnabled();//
+		boolean isEnabled();
 	public:
-		SecureDigitalStorage(uint8_t pin, uint8_t filename[]);//
+		SecureDigitalStorage(uint8_t pin, uint8_t filename[]);
 		
 		/*
 		Any reading of the file will update the current position to the start
@@ -67,7 +71,7 @@ class SecureDigitalStorage
 		
 		//Read file until newline or full buffer
 		//returns pointer to buffer on success null on failure
-		uint8_t * readln();//
+		uint8_t * readln();
 		
 		//Read file until newline, full buffer, or length
 		//returns pointer to buffer on success null on failure
@@ -88,4 +92,18 @@ class SecureDigitalStorage
 		//Deletes the objects associated file
 		//returns 0 on failure, 1 on success
 		uint8_t deleteFile();
+
+		//Determine if the SD shield is enabled
+		boolean enabled();
+
+		uint32_t getPos();
+		void setPos(uint32_t pos);
+
+		//The following functions for for FTP
+		boolean ftp_Open();
+		void ftp_Close();
+		uint32_t available();
+		uint8_t ftp_read(uint8_t* buffer, uint8_t len);
+		uint8_t ftp_write(uint8_t* buffer, uint8_t len);
+	
 };

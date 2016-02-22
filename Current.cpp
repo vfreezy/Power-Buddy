@@ -21,7 +21,6 @@
 #include "Current.h"
 #include "Sensor.h"
 #include "Arduino.h"
-#include "stdint-gcc.h"
 
 
 

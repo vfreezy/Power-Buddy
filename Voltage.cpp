@@ -20,7 +20,7 @@
 ******************************************************************************/
 #include "Voltage.h"
 #include "Arduino.h"
-#include "stdint-gcc.h"
+
 
 
 Voltage::Voltage(int pin)
